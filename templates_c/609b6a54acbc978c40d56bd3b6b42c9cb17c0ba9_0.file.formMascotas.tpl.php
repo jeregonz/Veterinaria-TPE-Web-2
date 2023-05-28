@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-27 01:31:42
+/* Smarty version 4.3.1, created on 2023-05-28 05:50:49
   from 'C:\xampp\htdocs\web2\TPE-Web-2\templates\formMascotas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6471415eb76b24_08973075',
+  'unifunc' => 'content_6472cf999f4c33_70286510',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '609b6a54acbc978c40d56bd3b6b42c9cb17c0ba9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Web-2\\templates\\formMascotas.tpl',
-      1 => 1685143900,
+      1 => 1685245715,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6471415eb76b24_08973075 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6472cf999f4c33_70286510 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +56,7 @@ function content_6471415eb76b24_08973075 (Smarty_Internal_Template $_smarty_tpl)
         }
     </style>
 
-    <form action="add" method="post">
+    <form action="mascotas/add" method="post">
         <label for="nombre">Nombre de la Mascota:</label>
         <input type="text" id="nombre" name="nombre" required>
 

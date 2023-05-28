@@ -33,7 +33,7 @@
         }
     </style>
 
-    <form action="add" method="post">
+    <form action="mascotas/add" method="post">
         <label for="nombre">Nombre de la Mascota:</label>
         <input type="text" id="nombre" name="nombre" required>
 

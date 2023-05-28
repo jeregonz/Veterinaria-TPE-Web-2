@@ -44,6 +44,7 @@ switch ($params[0]) {
                     //     $id_cliente = $_REQUEST['id_cliente'];
                     //     echo "se agrego la mascota con nombre: $nombre, de tipo: $tipo y raza: $raza";
                     // }
+                    header("Location: " . BASE_URL . "mascotas");
                     break;
                 case 'modify':
                     //formulario con parametros para editar

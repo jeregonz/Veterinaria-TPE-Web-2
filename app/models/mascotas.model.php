@@ -8,13 +8,36 @@ class mascotasModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_veterinaria;charset=utf8', 'root', '');
     }
     /**
+     * Devuelve la lista de mascotas completa.
+     */
+    public function getAllMascotas() {
+        // 1. abro conexión a la DB
+        // ya esta abierta por el constructor de la clase
+
+        // 2. ejecuto la sentencia (2 subpasos)
+        $query = $this->db->prepare("SELECT * FROM mascotas");
+        $query->execute();
+
+        // 3. obtengo los resultados
+        $mascotas = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+        
+        return $mascotas;
+    }
+    /**
      * Inserta una mascota en la base de datos.
      */
-    public function insertMascotas($nombre, $tipo, $raza, $id_cliente) {
+    public function insertMascota($nombre, $tipo, $raza, $id_cliente) {
         $query = $this->db->prepare("INSERT INTO mascotas (nombre, tipo, raza, id_cliente) VALUES (?, ?, ?, ?)");
         $query->execute([$nombre, $tipo, $raza, $id_cliente]);
 
         //return $this->db->lastInsertId();
+    }
+    /**
+     * Elimina una mascota dado su id.
+     */
+    function deleteMascotaById($id) {
+        $query = $this->db->prepare('DELETE FROM mascotas WHERE id = ?');
+        $query->execute([$id]);
     }
 
 }
