@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-29 02:32:22
+/* Smarty version 4.3.1, created on 2023-05-29 21:26:30
   from 'C:\xampp\htdocs\web2\TPE-Web-2\templates\formMascotas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6473f29643a482_34525764',
+  'unifunc' => 'content_6474fc66330998_92513504',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '609b6a54acbc978c40d56bd3b6b42c9cb17c0ba9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Web-2\\templates\\formMascotas.tpl',
-      1 => 1685319970,
+      1 => 1685388388,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6473f29643a482_34525764 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6474fc66330998_92513504 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,16 +66,23 @@ function content_6473f29643a482_34525764 (Smarty_Internal_Template $_smarty_tpl)
         <label for="raza">Raza:</label>
         <input type="text" id="raza" name="raza" required>
 
-        <label for="id_cliente">ID cliente:</label>
+        <label for="id_cliente">Nombre del dueño:</label>
         <select id="id_cliente" name="id_cliente" required>
-                <option></option>
-                <option value="1">nombre 1</option>
-                <option value="2">nombre 2</option>
-                <option value="3">nombre 3</option>
-                <option value="4">nombre 4</option>
-                <option value="5">nombre 5</option>
+            <option></option>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['clientes']->value, 'cliente');
+$_smarty_tpl->tpl_vars['cliente']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['cliente']->value) {
+$_smarty_tpl->tpl_vars['cliente']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['cliente']->value->id_cliente;?>
+"><?php echo $_smarty_tpl->tpl_vars['cliente']->value->nombre;?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-
+                
         <input type="submit" value="Agregar Mascota">
     </form>
 

@@ -13,8 +13,8 @@ class mascotasController {
 
     }
 
-    public function showFormMascotas() {
-        $this->view->showFormMascotas();
+    public function showFormMascotas($clientes) {
+        $this->view->showFormMascotas($clientes);
     }
 
     function addMascota() {

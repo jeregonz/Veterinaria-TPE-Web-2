@@ -43,16 +43,14 @@
         <label for="raza">Raza:</label>
         <input type="text" id="raza" name="raza" required>
 
-        <label for="id_cliente">ID cliente:</label>
+        <label for="id_cliente">Nombre del dueño:</label>
         <select id="id_cliente" name="id_cliente" required>
-                <option></option>
-                <option value="1">nombre 1</option>
-                <option value="2">nombre 2</option>
-                <option value="3">nombre 3</option>
-                <option value="4">nombre 4</option>
-                <option value="5">nombre 5</option>
+            <option></option>
+            {foreach from=$clientes item=$cliente}
+                <option value="{$cliente->id_cliente}">{$cliente->nombre}</option>
+            {/foreach}
         </select>
-
+                
         <input type="submit" value="Agregar Mascota">
     </form>
 

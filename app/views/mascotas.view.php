@@ -9,8 +9,9 @@ class mascotasView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    function showFormMascotas() {
+    function showFormMascotas($clientes) {
         // mostrar el tpl
+        $this->smarty->assign('clientes', $clientes);
         $this->smarty->display('formMascotas.tpl');
     }
 

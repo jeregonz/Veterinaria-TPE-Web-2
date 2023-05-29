@@ -14,6 +14,8 @@ if (!empty($_REQUEST['action'])) {
 
 $params = explode('/', $action);
 
+$clientesController = new clientesController();
+
 switch ($params[0]) {
     case 'inicio':
         echo '<h1>inicio</h1>';
@@ -22,7 +24,6 @@ switch ($params[0]) {
         echo '<a href="clientes" type="button">ir a clientes</a>';
         break;
     case 'clientes':
-        $clientesController = new clientesController();
         $clientesController->showFormClientes();
         if (count($params) > 1){
             switch ($params[1]) {
@@ -44,7 +45,8 @@ switch ($params[0]) {
         break;
     case 'mascotas':
         $mascotasController = new mascotasController();
-        $mascotasController->showFormMascotas();
+        $clientes = $clientesController->getAllClientes();
+        $mascotasController->showFormMascotas($clientes);
         if (count($params) > 1){
             switch ($params[1]){
                 case 'add':

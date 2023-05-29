@@ -17,6 +17,10 @@ class clientesController {
         $this->view->showFormClientes();
     }
 
+    public function getAllClientes(){
+        return $this->model->getAllClientes();
+    }
+
     function addCliente() {
         // TODO: validar entrada de datos
         if (isset($_POST['nombre'])){
