@@ -12,6 +12,7 @@ class mascotasView {
     function showFormMascotas($clientes) {
         // mostrar el tpl
         $this->smarty->assign('clientes', $clientes);
+        $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->display('formMascotas.tpl');
     }
 

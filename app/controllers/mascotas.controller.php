@@ -17,6 +17,10 @@ class mascotasController {
         $this->view->showFormMascotas($clientes);
     }
 
+    public function getAllMascotas(){
+        return $this->model->getAllMascotas();
+    }
+
     function addMascota() {
         // TODO: validar entrada de datos
         if (isset($_POST['nombre'])){
@@ -31,8 +35,11 @@ class mascotasController {
         //$this->view->showMensaje("se agrego la mascota con nombre: $nombre, de tipo: $tipo y raza: $raza, del cliente $id_cliente");
         
         //$id = $this->model->insertMascota($nombre, $tipo, $raza, $id_cliente);
+   
+    }
 
-        
+    function deleteMascota($id) {
+        $this->model->deleteMascotaById($id);
     }
 
 

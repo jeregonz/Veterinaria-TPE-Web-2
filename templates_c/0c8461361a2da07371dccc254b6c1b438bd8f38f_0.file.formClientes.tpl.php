@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-29 02:31:27
+/* Smarty version 4.3.1, created on 2023-06-01 05:17:20
   from 'C:\xampp\htdocs\web2\TPE-Web-2\templates\formClientes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6473f25f14b1e0_58522975',
+  'unifunc' => 'content_64780dc00be219_53480287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c8461361a2da07371dccc254b6c1b438bd8f38f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Web-2\\templates\\formClientes.tpl',
-      1 => 1685319950,
+      1 => 1685589023,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6473f25f14b1e0_58522975 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64780dc00be219_53480287 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,11 +64,12 @@ function content_6473f25f14b1e0_58522975 (Smarty_Internal_Template $_smarty_tpl)
         <input type="text" id="telefono" name="telefono" required>
 
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
+        <input type="email" id="email" name="email" required>
 
         <input type="submit" value="Agregar Cliente">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+" type="button">volver a inicio</a>
 </body><?php }
 }

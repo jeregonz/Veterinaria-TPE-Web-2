@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-29 21:26:30
+/* Smarty version 4.3.1, created on 2023-06-01 05:19:48
   from 'C:\xampp\htdocs\web2\TPE-Web-2\templates\formMascotas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6474fc66330998_92513504',
+  'unifunc' => 'content_64780e5463db90_36817936',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '609b6a54acbc978c40d56bd3b6b42c9cb17c0ba9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Web-2\\templates\\formMascotas.tpl',
-      1 => 1685388388,
+      1 => 1685589586,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6474fc66330998_92513504 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64780e5463db90_36817936 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +56,9 @@ function content_6474fc66330998_92513504 (Smarty_Internal_Template $_smarty_tpl)
         }
     </style>
 
+    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+mascotas/delete/35" type="button">borrar mascota 35</a>
+
     <form action="mascotas/add" method="post">
         <label for="nombre">Nombre de la Mascota:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -86,6 +89,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <input type="submit" value="Agregar Mascota">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+" type="button">volver a inicio</a>
 </body><?php }
 }

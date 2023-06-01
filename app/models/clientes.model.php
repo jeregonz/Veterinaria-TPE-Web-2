@@ -36,8 +36,16 @@ class clientesModel {
      * Elimina un cliente dado su id.
      */
     function deleteClienteById($id) {
-        $query = $this->db->prepare('DELETE FROM clientes WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM clientes WHERE id_cliente = ?');
         $query->execute([$id]);
     }
 
+    /*
+    function updateClienteById($id_cliente, $nombre, $telefono, $email) {
+        $query = $this->db->prepare('UPDATE `clientes` 
+            SET `nombre`= ?, `telefono`=?, `email`= ? WHERE id_cliente = ?');
+        
+        $query->execute([$nombre, $telefono, $email, $id_cliente]);
+    }
+    */
 }

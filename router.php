@@ -57,7 +57,9 @@ switch ($params[0]) {
                     //formulario con parametros para editar
                     break;
                 case 'delete':
-                    //con id para eliminar
+                    if (count($params) > 2)
+                        $mascotasController-> deleteMascota($params[2]);
+                    header("Location: " . BASE_URL . "mascotas");
                     break;
                 default:
                     echo "pagina '$params[1]' no encontrada";

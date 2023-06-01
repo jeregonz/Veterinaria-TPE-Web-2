@@ -41,10 +41,10 @@
         <input type="text" id="telefono" name="telefono" required>
 
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
+        <input type="email" id="email" name="email" required>
 
         <input type="submit" value="Agregar Cliente">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    <a href="{$BASE_URL}" type="button">volver a inicio</a>
 </body>

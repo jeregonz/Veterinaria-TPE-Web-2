@@ -33,6 +33,8 @@
         }
     </style>
 
+    <a href="{$BASE_URL}mascotas/delete/35" type="button">borrar mascota 35</a>
+
     <form action="mascotas/add" method="post">
         <label for="nombre">Nombre de la Mascota:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -54,5 +56,5 @@
         <input type="submit" value="Agregar Mascota">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    <a href="{$BASE_URL}" type="button">volver a inicio</a>
 </body>

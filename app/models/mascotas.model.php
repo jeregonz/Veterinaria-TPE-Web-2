@@ -36,8 +36,17 @@ class mascotasModel {
      * Elimina una mascota dado su id.
      */
     function deleteMascotaById($id) {
-        $query = $this->db->prepare('DELETE FROM mascotas WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM mascotas WHERE id_mascota = ?');
         $query->execute([$id]);
     }
+    
+    /*
+    function updateMascotaById($id_mascota, $nombre, $tipo, $raza, $id_cliente) {
+        $query = $this->db->prepare('UPDATE `mascotas` 
+            SET `nombre`= ?, `tipo`=?, `raza`= ?, `id_cliente`= ? WHERE id_mascota = ?');
+        
+        $query->execute([$nombre, $tipo, $raza, $id_cliente, $id_mascota]);
+    }
+    */
 
 }
