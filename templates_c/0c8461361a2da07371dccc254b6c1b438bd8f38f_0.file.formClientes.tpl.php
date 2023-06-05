@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-01 05:17:20
+/* Smarty version 4.3.1, created on 2023-06-03 22:42:06
   from 'C:\xampp\htdocs\web2\TPE-Web-2\templates\formClientes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64780dc00be219_53480287',
+  'unifunc' => 'content_647ba59ebce411_78757300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c8461361a2da07371dccc254b6c1b438bd8f38f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Web-2\\templates\\formClientes.tpl',
-      1 => 1685589023,
+      1 => 1685824918,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64780dc00be219_53480287 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647ba59ebce411_78757300 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +55,9 @@ function content_64780dc00be219_53480287 (Smarty_Internal_Template $_smarty_tpl)
             background-color: #45a049;
         }
     </style>
+
+    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+clientes/delete/11" type="button">borrar cliente x</a>
 
     <form action="clientes/add" method="post">
         <label for="nombre">Nombre:</label>

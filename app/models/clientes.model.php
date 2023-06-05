@@ -7,6 +7,14 @@ class clientesModel {
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_veterinaria;charset=utf8', 'root', '');
     }
+
+    public function getClienteById($id){
+        $query = $this->db->prepare('SELECT * FROM clientes WHERE id_cliente = ?');
+        $query->execute([$id]);
+
+        return $query->fetch(PDO::FETCH_OBJ); // devuelve un objeto
+    }
+
     /**
      * Devuelve la lista de clientes completa.
      */
@@ -19,9 +27,7 @@ class clientesModel {
         $query->execute();
 
         // 3. obtengo los resultados
-        $clientes = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
-        
-        return $clientes;
+        return $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
     }
     /**
      * Inserta un cliente en la base de datos.

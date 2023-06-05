@@ -33,6 +33,8 @@
         }
     </style>
 
+    <a href="{$BASE_URL}clientes/delete/11" type="button">borrar cliente x</a>
+
     <form action="clientes/add" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
