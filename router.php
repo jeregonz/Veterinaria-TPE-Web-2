@@ -15,6 +15,8 @@ if (!empty($_REQUEST['action'])) {
 $params = explode('/', $action);
 
 $clientesController = new clientesController();
+$mascotasController = new mascotasController();
+$clientes = $clientesController->getAllClientes();
 
 switch ($params[0]) {
     case 'inicio':
@@ -39,7 +41,9 @@ switch ($params[0]) {
 
                     break;
                 case 'delete':
-                    //borrar
+                    if (count($params) > 2)
+                        $clientesController-> deleteCliente($params[2]);
+                    header("Location: " . BASE_URL . "clientes");
                     break;
                 default:
                     //mostrar clientes
@@ -48,8 +52,6 @@ switch ($params[0]) {
         }
         break;
     case 'mascotas':
-        $mascotasController = new mascotasController();
-        $clientes = $clientesController->getAllClientes();
         $mascotasController->showFormMascotas($clientes);
         if (count($params) > 1){
             switch ($params[1]){
@@ -57,16 +59,34 @@ switch ($params[0]) {
                     $mascotasController-> addMascota();
                     header("Location: " . BASE_URL . "mascotas");
                     break;
-                case 'modify':
-                    //formulario con parametros para editar
-                    break;
+
                 case 'delete':
-                    //con id para eliminar
+                    if (count($params) > 2)
+                        $mascotasController-> deleteMascota($params[2]);
+                    header("Location: " . BASE_URL . "mascotas");
                     break;
                 default:
                     echo "pagina '$params[1]' no encontrada";
                     break;
             }
+        }
+        break;
+    case 'modify':
+        if (count($params) > 1)
+            $mascotasController->prepareUpdateMascota($params[1], $clientes);
+        if ($params[1]=="updating")
+            echo "<br>";
+            if (isset($_POST) && !empty($_POST))
+                $mascotasController->updateMascota($_POST);
+        break;
+    case 'cliente':
+        if (count($params) > 1){
+            $clientesController-> showCliente($params[1]);
+        }
+        break;
+    case 'mascota':
+        if (count($params) > 1){
+            $mascotasController-> showMascota($params[1]);
         }
         break;
     default:

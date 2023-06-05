@@ -13,8 +13,24 @@ class clientesController {
 
     }
 
+    public function showCliente($id) {
+        if (is_numeric($id)){
+            $cliente = $this->model->getClienteById($id);
+            if($cliente)
+                $this->view->showClienteById($cliente);
+            else
+                $this->view->showMensaje("cliente no encontrado");
+        }
+        else
+            $this->view->showMensaje("cliente no encontrado");
+    }
+
     public function showFormClientes() {
         $this->view->showFormClientes();
+    }
+
+    public function getCliente($id){
+        return $this->model->getClienteById($id);
     }
 
     public function getAllClientes(){
@@ -38,5 +54,8 @@ class clientesController {
         
     }
 
+    function deleteCliente($id) {
+        $this->model->deleteClienteById($id);
+    }
 
 }

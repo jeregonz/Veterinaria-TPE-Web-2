@@ -13,8 +13,24 @@ class mascotasController {
 
     }
 
+    public function showMascota($id) {
+        if (is_numeric($id)){
+            $mascota = $this->model->getMascotaById($id);
+            if($mascota)
+                $this->view->showMascotaById($mascota);
+            else
+                $this->view->showMensaje("mascota no encontrada");
+        }
+        else
+            $this->view->showMensaje("mascota no encontrada");
+    }
+
     public function showFormMascotas($clientes) {
         $this->view->showFormMascotas($clientes);
+    }
+
+    public function getAllMascotas(){
+        return $this->model->getAllMascotas();
     }
 
     function addMascota() {
@@ -31,9 +47,35 @@ class mascotasController {
         //$this->view->showMensaje("se agrego la mascota con nombre: $nombre, de tipo: $tipo y raza: $raza, del cliente $id_cliente");
         
         //$id = $this->model->insertMascota($nombre, $tipo, $raza, $id_cliente);
-
-        
+   
     }
 
+    function deleteMascota($id) {
+        $this->model->deleteMascotaById($id);
+    }
 
+    function prepareUpdateMascota($id, $clientes) {
+        if (is_numeric($id)){
+            $mascota = $this->model->getMascotaById($id);
+            if($mascota)
+                    $this->view->showUpdateMascota($mascota, $clientes);
+                else
+                    $this->view->showMensaje("mascota no encontrada");
+        }
+        else
+            $this->view->showMensaje("mascota no encontrada");
+    }
+
+    function updateMascota($mascota) {
+        if (isset($mascota) && !empty($mascota)){
+            $id_mascota = $mascota['id_mascota'];
+            $nombre = $mascota['nombre'];
+            $tipo = $mascota['tipo'];
+            $raza = $mascota['raza'];
+            $id_cliente = $mascota['id_cliente'];
+        }
+
+        $this->model->updateMascotaById($id_mascota, $nombre, $tipo, $raza, $id_cliente);
+        header("Location: " . BASE_URL . "mascota/" .$id_mascota);
+    }
 }
