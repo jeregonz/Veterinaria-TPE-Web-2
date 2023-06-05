@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinaria - Clientes</title>
-</head>
+{include file= "head.tpl"}
+
 <body>
-    <style>
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        label {
-            margin-top: 5px;
-        }
-
-        input[type="submit"] {
-            margin-top: 10px;
-            border-radius: 5px;
-            padding: 5px 10px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+{include file= "header.tpl"}
 
     <form action="clientes/add" method="post">
         <label for="nombre">Nombre:</label>
@@ -47,4 +17,6 @@
     </form>
 
     <a href="inicio" type="button">volver a inicio</a>
-</body>
+   
+ {include file= "footer.tpl"}
+

@@ -1,0 +1,4 @@
+<?php
+
+require_once 'app/views/clientes.view.php';
+require_once 'app/models/clientes.model.php';

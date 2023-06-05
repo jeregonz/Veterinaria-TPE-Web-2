@@ -10,7 +10,7 @@ class clientesView {
     }
 
     function showFormClientes() {
-        // mostrar el tpl
+        $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->display('formClientes.tpl');
     }
 

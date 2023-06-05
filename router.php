@@ -4,7 +4,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 //require_once 'app/views/mascotas.view.php';
 require_once 'app/controllers/mascotas.controller.php';
 require_once 'app/controllers/clientes.controller.php';
-
+//require_once 'app/controllers/view.controller.php';
 
 if (!empty($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
@@ -18,10 +18,14 @@ $clientesController = new clientesController();
 
 switch ($params[0]) {
     case 'inicio':
-        echo '<h1>inicio</h1>';
-        echo '<a href="mascotas" type="button">ir a mascotas</a>';
-        echo '<br>';
-        echo '<a href="clientes" type="button">ir a clientes</a>';
+        
+        
+        
+        //echo '<h1>inicio</h1>';
+        //echo '<a href="mascotas" type="button">ir a mascotas</a>';
+        //echo '<br>';
+        //echo '<a href="clientes" type="button">ir a clientes</a>';
+        
         break;
     case 'clientes':
         $clientesController->showFormClientes();
@@ -66,6 +70,6 @@ switch ($params[0]) {
         }
         break;
     default:
-        echo "pagina '$params[0]' no encontrada";
+        echo "página '$params[0]' no encontrada";
         break;
 }
