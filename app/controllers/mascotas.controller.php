@@ -15,7 +15,7 @@ class mascotasController {
 
     public function showMascota($id) {
         if (is_numeric($id)){
-            $mascota = $this->model->getMascotaById($id);
+            $mascota = $this->getMascota($id);
             if($mascota)
                 $this->view->showMascotaById($mascota);
             else
@@ -26,14 +26,20 @@ class mascotasController {
     }
 
     public function showFormMascotas($clientes) {
-        $this->view->showFormMascotas($clientes);
+        $mascotas = $this->getAllMascotas();
+        //check logged
+        $this->view->showFormMascotas($mascotas, $clientes/*, session logged*/);
+    }
+
+    public function getMascota($id){
+        return $this->model->getMascotaById($id);
     }
 
     public function getAllMascotas(){
         return $this->model->getAllMascotas();
     }
 
-    function addMascota() {
+    public function addMascota() {
         // TODO: validar entrada de datos
         if (isset($_POST['nombre'])){
             $nombre = $_POST['nombre'];
@@ -47,14 +53,18 @@ class mascotasController {
         //$this->view->showMensaje("se agrego la mascota con nombre: $nombre, de tipo: $tipo y raza: $raza, del cliente $id_cliente");
         
         //$id = $this->model->insertMascota($nombre, $tipo, $raza, $id_cliente);
-   
     }
 
-    function deleteMascota($id) {
-        $this->model->deleteMascotaById($id);
+    public function deleteMascota($id) {
+        $mascota = $this->getMascota($id);
+        if ($mascota){
+            $this->model->deleteMascotaById($id);
+            header("Location: " . BASE_URL . "mascotas");
+        }
+        else $this->view->showMensaje('mascota no encontrada');
     }
 
-    function prepareUpdateMascota($id, $clientes) {
+    public function prepareUpdateMascota($id, $clientes) {
         if (is_numeric($id)){
             $mascota = $this->model->getMascotaById($id);
             if($mascota)
@@ -66,13 +76,13 @@ class mascotasController {
             $this->view->showMensaje("mascota no encontrada");
     }
 
-    function updateMascota($mascota) {
-        if (isset($mascota) && !empty($mascota)){
-            $id_mascota = $mascota['id_mascota'];
-            $nombre = $mascota['nombre'];
-            $tipo = $mascota['tipo'];
-            $raza = $mascota['raza'];
-            $id_cliente = $mascota['id_cliente'];
+    public function updateMascota() {
+        if (isset($_POST) && !empty($_POST)){
+            $id_mascota = $_POST['id_mascota'];
+            $nombre = $_POST['nombre'];
+            $tipo = $_POST['tipo'];
+            $raza = $_POST['raza'];
+            $id_cliente = $_POST['id_cliente'];
         }
 
         $this->model->updateMascotaById($id_mascota, $nombre, $tipo, $raza, $id_cliente);
