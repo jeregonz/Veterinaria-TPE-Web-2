@@ -21,10 +21,10 @@ switch ($params[0]) {
         
         
         
-        //echo '<h1>inicio</h1>';
-        //echo '<a href="mascotas" type="button">ir a mascotas</a>';
-        //echo '<br>';
-        //echo '<a href="clientes" type="button">ir a clientes</a>';
+        echo '<h1>inicio</h1>';
+        echo '<a href="mascotas" type="button">ir a mascotas</a>';
+        echo '<br>';
+        echo '<a href="clientes" type="button">ir a clientes</a>';
         
         break;
         
