@@ -9,12 +9,26 @@ class clientesView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    function showFormClientes() {
+    public function showClienteById($cliente, $tiene_mascotas) {
+        // mostrar el tpl
+        $this->smarty->assign('BASE_URL', BASE_URL);
+        $this->smarty->assign('cliente', $cliente);
+        $this->smarty->assign('tiene_mascotas', $tiene_mascotas);
+        $this->smarty->display('cliente.tpl');
+    }
+
+    public function showFormClientes() {
+        // mostrar el tpl
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->display('formClientes.tpl');
     }
 
-    function showMensaje($mensaje){
+    public function showUpdateCliente($cliente){
+        $this->smarty->assign('cliente', $cliente);
+        $this->smarty->display('updateCliente.tpl');
+    }
+
+    public function showMensaje($mensaje){
         echo "$mensaje";
     }
 }
