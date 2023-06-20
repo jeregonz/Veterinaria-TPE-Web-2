@@ -15,9 +15,9 @@ class mascotasView {
         $this->smarty->display('mascota.tpl');
     }
 
-    public function showFormMascotas($mascotas, $clientes/*, $logged*/) {
+    public function showFormMascotas($mascotas, $clientes, $is_logged) {
         // mostrar el tpl
-        //$this->smarty->assign('logged', $logged);
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('title', 'Mascotas');
         $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('mascotas', $mascotas);
@@ -26,6 +26,7 @@ class mascotasView {
     }
 
     public function showUpdateMascota($mascota, $clientes){
+        $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('mascota', $mascota);
         $this->smarty->display('updateMascota.tpl');

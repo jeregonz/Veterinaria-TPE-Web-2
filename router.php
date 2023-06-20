@@ -15,50 +15,24 @@ $params = explode('/', $action);
 
 $clientesController = new clientesController();
 $mascotasController = new mascotasController();
+$generalController = new generalController();
+
 $clientes = $clientesController->getAllClientes();
 
 switch ($params[0]) {
     case 'inicio':
-        $generalController= new generalController();
-        $generalController-> inicio();
-        
-        
-        echo '<h1>inicio</h1>';
-        echo '<a href="mascotas" type="button">ir a mascotas</a>';
-        echo '<br>';
-        echo '<a href="clientes" type="button">ir a clientes</a>';
-        
+        $generalController-> showInicio();
         break;
         
     case 'clientes':
-        $clientesController->showFormClientes();
+        $clientesController->showClientesList();
         break;
     case 'mascotas':
             $mascotasController->showFormMascotas($clientes);
-        if (count($params) > 1){
-            switch ($params[1]){
-                case 'add':
-                    $mascotasController-> addMascota();
-                    header("Location: " . BASE_URL . "mascotas");
-                    break;
-
-                case 'delete':
-                    if (count($params) > 2)
-                        $mascotasController-> deleteMascota($params[2]);
-
-                   // header('Location: " . BASE_URL . "mascotas");
-                    break;
-                default:
-                    echo "pagina '$params[1]' no encontrada";
-                    break;
-            }
-
-        }
         break;
     case 'delete_cliente':
         if (count($params) > 1)
             $clientesController->deleteCliente($params[1]);
-        header("Location: " . BASE_URL . "clientes");
         break;
     case 'cliente':
         if (count($params) > 1) {
@@ -99,6 +73,22 @@ switch ($params[0]) {
             }
         }
         break;
+
+    case 'login':
+        $generalController->showLogin();
+        break;
+    case 'validate':
+        $generalController->validateUser();
+        break;
+    case 'logout':
+        $generalController->logout();
+        break;
+    case 'usuario':
+        session_start();
+        var_dump($_SESSION['USER_NAME']);
+        var_dump($_SESSION['IS_LOGGED']);
+        break;
+
     default:
         echo "página '$params[0]' no encontrada";
         break;

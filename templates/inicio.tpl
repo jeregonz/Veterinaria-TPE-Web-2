@@ -1,6 +1,3 @@
-{include file= "head.tpl"}
-
-<body class= "body">
 
 {include file= "header.tpl"}
 <div class= "inicio">
