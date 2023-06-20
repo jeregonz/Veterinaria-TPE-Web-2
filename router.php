@@ -4,7 +4,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 //require_once 'app/views/mascotas.view.php';
 require_once 'app/controllers/mascotas.controller.php';
 require_once 'app/controllers/clientes.controller.php';
-//require_once 'app/controllers/view.controller.php';
+require_once 'app/controllers/general.controller.php';
 
 if (!empty($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
@@ -20,7 +20,8 @@ $clientes = $clientesController->getAllClientes();
 
 switch ($params[0]) {
     case 'inicio':
-        
+        $generalController= new generalController();
+        $generalController-> inicio();
         
         
         //echo '<h1>inicio</h1>';
@@ -52,7 +53,7 @@ switch ($params[0]) {
         }
         break;
     case 'mascotas':
-        $mascotasController->showFormMascotas($clientes);
+            $mascotasController->showFormMascotas($clientes);
         if (count($params) > 1){
             switch ($params[1]){
                 case 'add':
@@ -63,12 +64,14 @@ switch ($params[0]) {
                 case 'delete':
                     if (count($params) > 2)
                         $mascotasController-> deleteMascota($params[2]);
-                    header("Location: " . BASE_URL . "mascotas");
+
+                   // header('Location: " . BASE_URL . "mascotas");
                     break;
                 default:
                     echo "pagina '$params[1]' no encontrada";
                     break;
             }
+
         }
         break;
     case 'modify':

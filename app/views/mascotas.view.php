@@ -30,4 +30,12 @@ class mascotasView {
     function showMensaje($mensaje){
         echo "$mensaje";
     }
+
+    function showListaMascotas($mascotas) {
+        // mostrar el tpl
+        $this->smarty->assign('mascotas', $mascotas);
+        $this->smarty->assign('BASE_URL', BASE_URL);
+        $this->smarty->display('listaMascotas.tpl');
+    }
+
 }

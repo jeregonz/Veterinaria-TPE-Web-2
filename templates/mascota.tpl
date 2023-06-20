@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinaria - Mascota {$mascota->nombre}</title>
-</head>
+{include file= "head.tpl"}
+
 <body>
-    <p>nombre de la mascota: {$mascota->nombre}</p>
-    <p>tipo de la mascota: {$mascota->tipo}</p>
-    <p>raza de la mascota: {$mascota->raza}</p>
+{include file= "header.tpl"}
+
+<a href="{BASE_URL}mascotas/delete/{$mascota->id_mascota}" type="button">Borrar mascota</a>
+<a href="{BASE_URL}modify/{$mascota->id_mascota}" type="button">Editar mascota</a>
+<a href="{BASE_URL}" type="button">volver a inicio</a>
+
+<p>nombre de la mascota: {$mascota->nombre}</p>
+<p>tipo de la mascota: {$mascota->tipo}</p>
+<p>raza de la mascota: {$mascota->raza}</p>
     
 
-</body>
+{include file= "footer.tpl"}

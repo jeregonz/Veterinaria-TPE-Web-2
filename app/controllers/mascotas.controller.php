@@ -29,6 +29,13 @@ class mascotasController {
         $this->view->showFormMascotas($clientes);
     }
 
+    public function showAllMascotas() {
+        $mascotas = $this->getAllMascotas();
+        $this->view->showListaMascotas($mascotas);
+
+
+    }
+
     public function getAllMascotas(){
         return $this->model->getAllMascotas();
     }
@@ -52,6 +59,7 @@ class mascotasController {
 
     function deleteMascota($id) {
         $this->model->deleteMascotaById($id);
+        header('Location: '.BASE_URL.'mascotas');
     }
 
     function prepareUpdateMascota($id, $clientes) {

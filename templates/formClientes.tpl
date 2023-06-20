@@ -3,9 +3,9 @@
 <body>
 {include file= "header.tpl"}
 
-    <a href="{$BASE_URL}clientes/delete/11" type="button">borrar cliente x</a>
+ 
 
-    <form action="clientes/add" method="post">
+    <form class= "form" action="clientes/add" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -18,7 +18,7 @@
         <input type="submit" value="Agregar Cliente">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    <a class= "boton_volver" href="inicio" type="button">Volver a inicio</a>
    
  {include file= "footer.tpl"}
 

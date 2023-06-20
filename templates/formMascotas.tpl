@@ -2,6 +2,16 @@
 
 <body>
 {include file= "header.tpl"}
+
+<li class="listamascotas">
+        {foreach from=$mascotas item=$mascota}
+        
+                        <ul> 
+                    <a href="{BASE_URL}mascota/{$mascota->id_mascota}">  {$mascota->nombre|capitalize} </a>
+                </ul>  
+        {/foreach}
+    </li>
+
        <form action="mascotas/add" method="post">
         <label for="nombre">Nombre de la Mascota:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -23,6 +33,6 @@
         <input type="submit" value="Agregar Mascota">
     </form>
 
-    <a href="inicio" type="button">volver a inicio</a>
+    
 
     {include file= "footer.tpl"}
