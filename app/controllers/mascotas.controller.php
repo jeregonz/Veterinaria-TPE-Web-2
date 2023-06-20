@@ -2,14 +2,17 @@
 
 require_once 'app/views/mascotas.view.php';
 require_once 'app/models/mascotas.model.php';
+require_once 'app/helpers/auth.helper.php';
 
 class mascotasController {
     private $model;
     private $view;
+    private $helper;
 
     public function __construct() {
         $this->model = new mascotasModel();
         $this->view = new mascotasView();
+        $this->helper = new authHelper();
 
     }
 
@@ -27,8 +30,12 @@ class mascotasController {
 
     public function showFormMascotas($clientes) {
         $mascotas = $this->getAllMascotas();
-        //check logged
-        $this->view->showFormMascotas($mascotas, $clientes/*, session logged*/);
+        session_start();
+        if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']){
+            $this->view->showFormMascotas($mascotas, $clientes, true);
+        }
+        else
+            $this->view->showFormMascotas($mascotas, $clientes, false);
     }
 
     public function getMascota($id){
@@ -40,8 +47,7 @@ class mascotasController {
     }
 
     public function addMascota() {
-        // TODO: validar entrada de datos
-        if (isset($_POST['nombre'])){
+        if (isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_POST['raza']) && isset($_POST['id_cliente'])){
             $nombre = $_POST['nombre'];
             $tipo = $_POST['tipo'];
             $raza = $_POST['raza'];
@@ -50,34 +56,33 @@ class mascotasController {
         
         $this->model->insertMascota($nombre, $tipo, $raza, $id_cliente);
         
-        //$this->view->showMensaje("se agrego la mascota con nombre: $nombre, de tipo: $tipo y raza: $raza, del cliente $id_cliente");
-        
-        //$id = $this->model->insertMascota($nombre, $tipo, $raza, $id_cliente);
     }
 
     public function deleteMascota($id) {
-        $mascota = $this->getMascota($id);
-        if ($mascota){
-            $this->model->deleteMascotaById($id);
-            header("Location: " . BASE_URL . "mascotas");
-        }
-        else $this->view->showMensaje('mascota no encontrada');
+        $this->helper->checkLoggedIn();
+            $mascota = $this->getMascota($id);
+            if ($mascota){
+                $this->model->deleteMascotaById($id);
+                header("Location: " . BASE_URL . "mascotas");
+            }
+            else $this->view->showMensaje('mascota no encontrada');
     }
 
     public function prepareUpdateMascota($id, $clientes) {
-        if (is_numeric($id)){
-            $mascota = $this->model->getMascotaById($id);
-            if($mascota)
-                    $this->view->showUpdateMascota($mascota, $clientes);
-                else
-                    $this->view->showMensaje("mascota no encontrada");
-        }
-        else
-            $this->view->showMensaje("mascota no encontrada");
+        $this->helper->checkLoggedIn();
+            if (is_numeric($id)){
+                $mascota = $this->model->getMascotaById($id);
+                if($mascota)
+                        $this->view->showUpdateMascota($mascota, $clientes);
+                    else
+                        $this->view->showMensaje("mascota no encontrada");
+            }
+            else
+                $this->view->showMensaje("mascota no encontrada");
     }
 
     public function updateMascota() {
-        if (isset($_POST) && !empty($_POST)){
+        if (isset($_POST['id_mascota']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_POST['raza']) && isset($_POST['id_cliente'])){
             $id_mascota = $_POST['id_mascota'];
             $nombre = $_POST['nombre'];
             $tipo = $_POST['tipo'];

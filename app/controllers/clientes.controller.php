@@ -2,14 +2,17 @@
 
 require_once 'app/views/clientes.view.php';
 require_once 'app/models/clientes.model.php';
+require_once 'app/helpers/auth.helper.php';
 
 class clientesController {
     private $model;
     private $view;
+    private $helper;
 
     public function __construct() {
         $this->model = new clientesModel();
         $this->view = new clientesView();
+        $this->helper = new authHelper();
 
     }
 
@@ -26,8 +29,8 @@ class clientesController {
             $this->view->showMensaje("cliente $id no encontrado");
     }
 
-    public function showFormClientes() {
-        $this->view->showFormClientes();
+    public function showClientesList() {
+        $this->view->showClientesList();
     }
 
     public function getSoloCliente($id){
@@ -43,7 +46,6 @@ class clientesController {
     }
 
     public function addCliente() {
-        // TODO: validar entrada de datos
         if (isset($_POST['nombre'])){
             $nombre = $_POST['nombre'];
             $telefono = $_POST['telefono'];
@@ -54,10 +56,25 @@ class clientesController {
     }
 
     public function deleteCliente($id) {
-        $this->model->deleteClienteById($id);
+        $this->helper->checkLoggedIn();
+        if (is_numeric($id)){
+            if($this->getClienteAndMascota($id)){
+                $this->showCliente($id);
+                $this->view->showMensaje("no se puede eliminar porque tiene al menos una mascota");
+            }
+            elseif ($this->getSoloCliente($id)){
+                $this->model->deleteClienteById($id);
+                header("Location: " . BASE_URL . "clientes");
+            }
+            else
+                $this->view->showMensaje("cliente $id no encontrado");
+        }
+        else
+            $this->view->showMensaje("cliente $id no encontrado");
     }
 
     public function prepareUpdateCliente($id) {
+        $this->helper->checkLoggedIn();
         if (is_numeric($id)){
             $cliente = $this->model->getClienteById($id);
             if($cliente)

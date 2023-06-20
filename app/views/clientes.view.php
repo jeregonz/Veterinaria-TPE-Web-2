@@ -17,13 +17,14 @@ class clientesView {
         $this->smarty->display('cliente.tpl');
     }
 
-    public function showFormClientes() {
+    public function showClientesList() {
         // mostrar el tpl
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->display('formClientes.tpl');
     }
 
     public function showUpdateCliente($cliente){
+        $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('cliente', $cliente);
         $this->smarty->display('updateCliente.tpl');
     }

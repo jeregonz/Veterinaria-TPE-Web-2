@@ -72,19 +72,19 @@
                 <a class="mascota" href="mascota/{$mascota->id_mascota}">{$mascota->nombre|capitalize}</a>
                 <span>pertenece a: </span>
                 <a href="cliente/{$mascota->id_cliente}">{$mascota->nombre_cliente|capitalize}</a>
-                {* {if $logged} *}
+                {if $is_logged}
                     <button class="editar">
                     <a href="update/mascota/{$mascota->id_mascota}">Editar</a>
                     </button>
                     <button class="borrar">
                     <a href="delete_mascota/{$mascota->id_mascota}">Borrar</a>
                     </button>
-                {* {/if} *}
+                {/if}
             </li>
         {/foreach}
     </ul>
 
-    {* {if $logged} *}
+    {if $is_logged}
         <form action="add_mascota" method="post">
             <label for="nombre">Nombre de la Mascota:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -106,7 +106,7 @@
                     
             <input type="submit" value="Agregar Mascota">
         </form>
-    {* {/if} *}
+    {/if}
     <a href="inicio" type="button">volver a inicio</a>
 
     {include file= "footer.tpl"}

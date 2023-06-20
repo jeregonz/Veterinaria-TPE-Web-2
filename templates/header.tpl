@@ -3,7 +3,7 @@
 {include file= "head.tpl"}
 <header>
 <h1 class= "titulo"> Veterinaria Las + Cotas<h1>
-<img class="logo" src="logo.jpg">
+<img class="logo" src="img/logo.jpg">
 </header>
 <nav>
     <ul class="navigation">
