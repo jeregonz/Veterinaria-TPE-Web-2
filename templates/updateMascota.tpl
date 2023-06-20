@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinaria - Editar Mascota {$mascota->nombre}</title>
-</head>
-<body>
-    <style>
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        label {
-            margin-top: 5px;
-        }
-
-        input[type="submit"] {
-            margin-top: 10px;
-            border-radius: 5px;
-            padding: 5px 10px;
-            border: none;
-            background-color: #8d7f05;
-            color: white;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #5e4103;
-        }
-    </style>
-    
+{include file="header.tpl"}
+ 
     <form action="updating" method="post">
         <input type="hidden" name="id_mascota" value="{$mascota->id_mascota}">
 
@@ -53,7 +20,7 @@
             {/foreach}
         </select>
                 
-        <input type="submit" value="Modificar Mascota">
+        <input class="modificar" type="submit" value="Modificar Mascota">
     </form>
-
-</body>
+    
+{include file="footer.tpl"}

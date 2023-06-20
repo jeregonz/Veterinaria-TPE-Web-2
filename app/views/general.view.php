@@ -9,12 +9,14 @@ class generalView {
         $this->smarty = new Smarty();
     }
 
-    function showInicio() {
+    function showInicio($is_logged) {
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->display('inicio.tpl');
     }
 
-    function showFormLogin() {
+    function showFormLogin($is_logged) {
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('title', "Login");
         $this->smarty->display('formLogin.tpl');
     }

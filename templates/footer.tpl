@@ -1,29 +1,20 @@
 <footer class="footer">
-    <div class="footer-column">
-        <h3>Sobre nosotros</h3>
-        <p align="center">La veterinaria más confiable que puedas encontrar</p>
-        <p align="center">En + Cotas encontrarás todo para tus animales</p>
-      </div>
-      <div class="footer-column">
-        <h3>Contacto</h3>
-        <p>Correo electrónico: info@mascotas.com</p>
-        <p>Teléfono: (2262)15446699</p>
-        <p>Dirección: Calle 59 4123, Necochea</p>
-      </div>
-      <div class="footer-column">
-        <h3>Enlaces útiles</h3>
-        <ul>
-          <li>Inicio</li>
-          <li>Servicios</li>
-          <li>Productos</li>
-          <li>Contacto</li>
-        </ul>
-      </div>
-
-    <div class="footer-bottom">
-      <p>Todos los derechos reservados &copy; 2023</p>
-    </div>
- </footer>
+<div class= "espacio"></div>
+<ul class="informacion">
+    <li>
+        <img class="footlogos" src="img/direccion.jpg">
+        Dirección: Calle 59 Nro. 1575. Necochea, Argentina
+    </li>
+    <li>
+        <img class="footlogos" src="img/telefono.jpg">
+        Telefono: (2262) 154226574
+    </li>
+    <li>
+        <img class="footlogos" src="img/maillogo.png">
+        Mail: contacto@lasmascotas.ar
+    </li>
+</ul>
+</footer>
 </body>
 
 </html>

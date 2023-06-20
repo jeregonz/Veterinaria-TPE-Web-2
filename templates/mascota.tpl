@@ -1,4 +1,4 @@
-{include file= "header.tpl"}
+{include file="header.tpl"}
 
     <p>nombre de la mascota: {$mascota->nombre}</p>
     <p>tipo de la mascota: {$mascota->tipo}</p>
@@ -7,5 +7,4 @@
         <a href="{$BASE_URL}cliente/{$mascota->id_cliente}">{$mascota->nombre_cliente}</a>
     </p>
     
-
-{include file= "footer.tpl"}
+{include file="footer.tpl"}

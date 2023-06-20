@@ -9,7 +9,7 @@
                 <span>pertenece a: </span>
                 <a href="cliente/{$mascota->id_cliente}">{$mascota->nombre_cliente|capitalize}</a>
                 {if $is_logged}
-                    <button class="editar">
+                    <button class="modificar">
                     <a href="update/mascota/{$mascota->id_mascota}">Editar</a>
                     </button>
                     <button class="borrar">
@@ -21,7 +21,7 @@
     </ul>
 
     {if $is_logged}
-        <form action="add_mascota" method="post">
+        <form class= "form" action="add_mascota" method="post">
             <label for="nombre">Nombre de la Mascota:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -40,9 +40,9 @@
                 {/foreach}
             </select>
                     
-            <input type="submit" value="Agregar Mascota">
+            <input class="agregar" type="submit" value="Agregar Mascota">
         </form>
     {/if}
-    <a href="inicio" type="button">volver a inicio</a>
+    
 
     {include file= "footer.tpl"}

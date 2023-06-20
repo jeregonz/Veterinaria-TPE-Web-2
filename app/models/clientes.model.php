@@ -12,7 +12,7 @@ class clientesModel {
         $query = $this->db->prepare('SELECT * FROM clientes WHERE id_cliente = ?');
         $query->execute([$id]);
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function getClienteAndMascota($id){
@@ -28,7 +28,7 @@ class clientesModel {
     }
 
     public function getAllClientes() {
-        $query = $this->db->prepare("SELECT * FROM clientes");
+        $query = $this->db->prepare("SELECT * FROM clientes ORDER BY `nombre` ASC");
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_OBJ);

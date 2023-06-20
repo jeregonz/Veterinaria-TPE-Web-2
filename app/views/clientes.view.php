@@ -14,24 +14,34 @@ class clientesView {
         $this->smarty->display('inicio.tpl');
     }
     
-    public function showClienteById($cliente, $tiene_mascotas) {
+    public function showClienteById($cliente, $tiene_mascotas, $is_logged) {
         // mostrar el tpl
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('cliente', $cliente);
         $this->smarty->assign('tiene_mascotas', $tiene_mascotas);
         $this->smarty->display('cliente.tpl');
     }
 
-    public function showClientesList() {
+    public function showAllClientes($clientes, $is_logged) {
         // mostrar el tpl
+        $this->smarty->assign('is_logged', $is_logged);
+        $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('BASE_URL', BASE_URL);
-        $this->smarty->display('formClientes.tpl');
+        $this->smarty->display('allClientes.tpl');
     }
 
-    public function showUpdateCliente($cliente){
+    public function showUpdateCliente($cliente, $is_logged){
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('cliente', $cliente);
         $this->smarty->display('updateCliente.tpl');
+    }
+
+    public function showError($is_logged){
+        $this->smarty->assign('is_logged', $is_logged);
+        $this->smarty->assign('BASE_URL', BASE_URL);
+        $this->smarty->display('errorCliente.tpl');
     }
 
     public function showMensaje($mensaje){

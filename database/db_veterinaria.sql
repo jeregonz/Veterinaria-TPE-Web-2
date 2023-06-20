@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2023 a las 01:02:31
+-- Tiempo de generación: 21-06-2023 a las 00:21:43
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -44,11 +44,14 @@ INSERT INTO `clientes` (`id_cliente`, `nombre`, `telefono`, `email`) VALUES
 (3, 'Carlos Rodríguez', '555-9876', 'carlosrodriguez@example.com'),
 (4, 'Laura García', '555-4321', 'lauragarcia@example.com'),
 (5, 'Andrés Ramírez', '555-8765', 'andresramirez@example.com'),
-(6, 'Ana Martínez', '555-3214', 'anamartinez@example.com'),
+(6, 'Ana Martín', '555-3214', 'anamartinez@example.com'),
 (7, 'Sergio Sánchez', '555-6543', 'sergiosanchez@example.com'),
 (8, 'Carolina Torres', '555-3456', 'carolinatorres@example.com'),
-(9, 'Luisa Vargas', '555-7654', 'luisavargas@example.com'),
-(10, 'Pedro Morales', '555-2345', 'pedromorales@example.com');
+(9, 'Luis Vargas', '555-7654', 'luisavargas@example.com'),
+(10, 'Pedro Morales', '555-2345', 'pedromorales@example.com'),
+(13, 'juancito ramirez', '3424234', 'juancito@hmail.com'),
+(15, 'Rudy Wisozk', 'erwrwe', 'qweq@f.com'),
+(16, 'zyra Rice', '324234', 'Kareem_Graham47@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -71,11 +74,11 @@ CREATE TABLE `mascotas` (
 INSERT INTO `mascotas` (`id_mascota`, `nombre`, `tipo`, `raza`, `id_cliente`) VALUES
 (1, 'max', 'perro', 'labrador', 7),
 (2, 'luna', 'gato', 'siamesa', 3),
-(3, 'rocky', 'perro', 'bulldog', 5),
+(3, 'rocky', 'perro', 'bulldogg', 2),
 (4, 'bella', 'gato', 'persa', 2),
 (5, 'charlie', 'perro', 'golden retriever', 9),
-(6, 'daisy', 'gato', 'maine coon', 1),
-(7, 'rocky', 'perro', 'pastor alemán', 6),
+(6, 'daisy', 'gato', 'maine cooon', 5),
+(7, 'rocky', 'perro', 'pastor alemán', 4),
 (8, 'oliver', 'gato', 'bengalí', 8),
 (9, 'bella', 'perro', 'chihuahua', 4),
 (10, 'lily', 'gato', 'ragdoll', 10),
@@ -88,7 +91,33 @@ INSERT INTO `mascotas` (`id_mascota`, `nombre`, `tipo`, `raza`, `id_cliente`) VA
 (17, 'buddy', 'perro', 'pastor alemán', 6),
 (18, 'mia', 'gato', 'bengalí', 8),
 (19, 'lucky', 'perro', 'chihuahua', 4),
-(20, 'simba', 'gato', 'ragdoll', 10);
+(20, 'simba', 'gato', 'ragdoll', 10),
+(37, 'pedro', 'mono', 'koko', 8),
+(41, 'aetet', 'etaeteat', 'tat', 5),
+(48, 'jyfgufu', 'ututu', 'ttututf', 8),
+(50, 'jjajaaja', 'jajaja', 'ajajaaj', 8),
+(51, 'htdrhdrt', 'hdrhrdhrdtht', 'ttdhrdhrh', 8),
+(63, 'zzzzz', 'zzzzzzz', 'zzzzzzzz', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `clave` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `clave`) VALUES
+(1, 'admin', '$2y$10$n8mr17Se3b1GKbVLnFBzvO1PIrSZqf7SY2QHTgxyBh.JKBy9HuMzq'),
+(2, 'juancito', '$2y$10$xxkFbY5ME5Nh9ezP1EbedOSncAEG2tKdjyosiu7q2C3ntUmbzNsWm');
 
 --
 -- Índices para tablas volcadas
@@ -108,6 +137,12 @@ ALTER TABLE `mascotas`
   ADD KEY `id_cliente` (`id_cliente`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -115,13 +150,19 @@ ALTER TABLE `mascotas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

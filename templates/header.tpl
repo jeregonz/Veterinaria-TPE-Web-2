@@ -11,21 +11,23 @@
     <title>Veterinaria Las + Cotas{if $title|default} {$title}{/if}</title>
 </head>
 
-<header>
+<body>
+    <header>
+        <img class="logo" src="img/logo.jpg">
+        <h1 class="titulo"> Veterinaria Las + Cotas<h1>
+            <div class="caja_login">
+                {if !$is_logged}
+                    <button class="boton_login" type="button"> <a href=login> Login </a></button>
+                {else}
+                    <button class="boton_login" type="button"> <a href=logout> Logout </a></button>
+                {/if}
+            </div>
 
-<img class="logo" src="img/logo.jpg">
-<h1 class= "titulo"> Veterinaria Las + Cotas<h1>
-<div class="caja_login">
-    <button class= "boton_login" type="button"> <a href=login> Login </a></button>
-</div>
-
-</header>
-<nav>
-    <ul class="navigation">
-        <li class= "item"> Inicio </li>
-        <li class= "item"> Medicamentos </li>
-        <li class= "item"> Alimentos </li>
-    </ul>
-
-
-</nav>
+    </header>
+    <nav>
+        <ul class="navigation">
+            <li class="item"> <a href="inicio"> Inicio </a> </li>
+            <li class="item"> Medicamentos </li>
+            <li class="item"> Alimentos </li>
+        </ul>
+    </nav>

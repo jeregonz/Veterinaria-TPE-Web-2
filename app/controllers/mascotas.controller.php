@@ -19,8 +19,11 @@ class mascotasController {
     public function showMascota($id) {
         if (is_numeric($id)){
             $mascota = $this->getMascota($id);
-            if($mascota)
-                $this->view->showMascotaById($mascota);
+            if($mascota){
+                session_start();
+                $is_logged = isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED'];
+                $this->view->showMascotaById($mascota, $is_logged);
+            }
             else
                 $this->view->showMensaje("mascota no encontrada");
         }
@@ -28,25 +31,17 @@ class mascotasController {
             $this->view->showMensaje("mascota no encontrada");
     }
 
-    public function showFormMascotas($clientes) {
+    public function showAllMascotas($clientes) {
         $mascotas = $this->getAllMascotas();
         session_start();
-        if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']){
-            $this->view->showFormMascotas($mascotas, $clientes, true);
-        }
+        if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED'])
+            $this->view->showAllMascotas($mascotas, $clientes, true);
         else
-            $this->view->showFormMascotas($mascotas, $clientes, false);
+            $this->view->showAllMascotas($mascotas, $clientes, false);
     }
 
     public function getMascota($id){
         return $this->model->getMascotaById($id);
-    }
-
-    public function showAllMascotas() {
-        $mascotas = $this->getAllMascotas();
-        $this->view->showListaMascotas($mascotas);
-
-
     }
 
     public function getAllMascotas(){
@@ -80,7 +75,7 @@ class mascotasController {
             if (is_numeric($id)){
                 $mascota = $this->model->getMascotaById($id);
                 if($mascota)
-                        $this->view->showUpdateMascota($mascota, $clientes);
+                        $this->view->showUpdateMascota($mascota, $clientes, true);
                     else
                         $this->view->showMensaje("mascota no encontrada");
             }

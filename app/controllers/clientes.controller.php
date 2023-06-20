@@ -18,19 +18,27 @@ class clientesController {
 
     public function showCliente($id) {
         if (is_numeric($id)){
+            session_start();
+            $is_logged = isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED'];
             if($cliente = $this->getClienteAndMascota($id))
-                $this->view->showClienteById($cliente, true);
+                $this->view->showClienteById($cliente, true, $is_logged);
             elseif ($cliente = $this->getSoloCliente($id))
-                $this->view->showClienteById($cliente, false);
+                $this->view->showClienteById($cliente, false, $is_logged);
             else
-                $this->view->showMensaje("cliente $id no encontrado");
+            $this->view->showMensaje("cliente $id no encontrado");
         }
         else
             $this->view->showMensaje("cliente $id no encontrado");
     }
 
-    public function showClientesList() {
-        $this->view->showClientesList();
+    public function showAllClientes() {
+        $clientes = $this->getAllClientes();
+        session_start();
+        if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED'])
+            $this->view->showAllClientes($clientes, true);
+        else
+            $this->view->showAllClientes($clientes, false);
+        
     }
 
     public function getSoloCliente($id){
@@ -59,8 +67,8 @@ class clientesController {
         $this->helper->checkLoggedIn();
         if (is_numeric($id)){
             if($this->getClienteAndMascota($id)){
-                $this->showCliente($id);
-                $this->view->showMensaje("no se puede eliminar porque tiene al menos una mascota");
+                $this->showError();
+                //$this->view->showMensaje("no se puede eliminar porque tiene al menos una mascota");
             }
             elseif ($this->getSoloCliente($id)){
                 $this->model->deleteClienteById($id);
@@ -78,7 +86,7 @@ class clientesController {
         if (is_numeric($id)){
             $cliente = $this->model->getClienteById($id);
             if($cliente)
-                    $this->view->showUpdateCliente($cliente);
+                    $this->view->showUpdateCliente($cliente, true);
                 else
                     $this->view->showMensaje("cliente no encontrado");
         }
@@ -97,4 +105,10 @@ class clientesController {
         $this->model->updateClienteById($id_cliente, $nombre, $telefono, $email);
         header("Location: " . BASE_URL . "cliente/" .$id_cliente);
     }
+
+    public function showError(){
+        $this->view->showError(true);
+        die();
+    }
+
 }

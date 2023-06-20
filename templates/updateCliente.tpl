@@ -1,14 +1,16 @@
+{include file="header.tpl"}
+
 <form action="updating" method="post">
-    <input type="hidden" name="id_cliente" value="{$cliente->id_cliente}">
+    <input type="hidden" name="id_cliente" value="{$cliente[0]->id_cliente}">
 
     <label for="nombre">Nombre y Apellido:</label>
-    <input type="text" id="nombre" name="nombre" value="{$cliente->nombre}" required>
+    <input type="text" id="nombre" name="nombre" value="{$cliente[0]->nombre}" required>
 
     <label for="telefono">Telefono:</label>
-    <input type="text" id="telefono" name="telefono" value="{$cliente->telefono}" required>
+    <input type="text" id="telefono" name="telefono" value="{$cliente[0]->telefono}" required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value="{$cliente->email}" required>
+    <input type="email" id="email" name="email" value="{$cliente[0]->email}" required>
             
-    <input type="submit" value="Modificar Cliente">
+    <input class="modificar" type="submit" value="Modificar Cliente">
 </form>

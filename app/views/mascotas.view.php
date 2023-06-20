@@ -9,23 +9,26 @@ class mascotasView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    public function showMascotaById($mascota) {
+    public function showMascotaById($mascota, $is_logged) {
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('mascota', $mascota);
         $this->smarty->display('mascota.tpl');
     }
 
-    public function showFormMascotas($mascotas, $clientes, $is_logged) {
+    public function showAllMascotas($mascotas, $clientes, $is_logged) {
         // mostrar el tpl
         $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('title', 'Mascotas');
         $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('mascotas', $mascotas);
         $this->smarty->assign('BASE_URL', BASE_URL);
-        $this->smarty->display('formMascotas.tpl');
+        $this->smarty->display('allMascotas.tpl');
     }
 
-    public function showUpdateMascota($mascota, $clientes){
+    public function showUpdateMascota($mascota, $clientes, $is_logged){
+        $this->smarty->assign('title', 'Modificar mascota');
+        $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('mascota', $mascota);
@@ -34,13 +37,6 @@ class mascotasView {
 
     public function showMensaje($mensaje){
         echo "$mensaje";
-    }
-
-    function showListaMascotas($mascotas) {
-        // mostrar el tpl
-        $this->smarty->assign('mascotas', $mascotas);
-        $this->smarty->assign('BASE_URL', BASE_URL);
-        $this->smarty->display('listaMascotas.tpl');
     }
 
 }

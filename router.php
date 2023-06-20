@@ -25,10 +25,11 @@ switch ($params[0]) {
         break;
         
     case 'clientes':
-        $clientesController->showClientesList();
+        $clientesController->showAllClientes();
         break;
-    case 'mascotas':
-            $mascotasController->showFormMascotas($clientes);
+    case 'add_cliente':
+        $clientesController->addCliente();
+        header("Location:" . BASE_URL . "clientes");
         break;
     case 'delete_cliente':
         if (count($params) > 1)
@@ -36,13 +37,13 @@ switch ($params[0]) {
         break;
     case 'cliente':
         if (count($params) > 1) {
-            $clientesController->showCliente($params[1]);
+            $clientesController->showCliente($params[1], false);
         }
         break;
 
     case 'mascotas':
-        $mascotasController->showFormMascotas($clientes);
-        break;
+        $mascotasController->showAllMascotas($clientes);
+    break;
     case 'add_mascota':
         $mascotasController->addMascota();
         header("Location:" . BASE_URL . "mascotas");

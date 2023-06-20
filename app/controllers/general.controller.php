@@ -13,11 +13,17 @@ class generalController {
     }
 
     function showInicio() {
-        $this->view->showInicio();
+        session_start();
+        if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED'])
+            $this->view->showInicio(true);
+        else
+            $this->view->showInicio(false);
     }
 
     public function showLogin() {
-        $this->view->showFormLogin();
+        session_start();
+        session_destroy();
+        $this->view->showFormLogin(false);
     }
 
     public function validateUser() {
@@ -35,7 +41,7 @@ class generalController {
 
                 header("Location: " . BASE_URL);
             } else {
-                $this->view->showFormLogin();
+                $this->showLogin();
             }
         }
     }
