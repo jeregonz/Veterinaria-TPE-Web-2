@@ -4,6 +4,12 @@
         <p>nombre del cliente: 
             <span class="nombre-cliente">{$cliente[0].nombre}</span>
         </p>
+        <p>email: 
+           {$cliente[0].email}
+        </p>
+        <p>telefono: 
+           {$cliente[0].telefono}
+        </p>
         <p>{$cliente[0].nombre} tiene {$cliente|@count} mascotas</p>
         {foreach from=$cliente item=fila key=key}
             <p>nombre de mascota {$key+1}: 
@@ -11,6 +17,15 @@
             </p>
         {/foreach}
     {else}
+        <p>nombre del cliente: 
+            <span class="nombre-cliente">{$cliente[0]->nombre}</span>
+        </p>
+        <p>email: 
+           {$cliente[0]->email}
+        </p>
+        <p>telefono: 
+           {$cliente[0]->telefono}
+        </p>
         <p>{$cliente[0]->nombre} no tiene mascotas.</p>
     {/if}
     <a class="boton_volver" href="clientes">Volver a clientes</a>
