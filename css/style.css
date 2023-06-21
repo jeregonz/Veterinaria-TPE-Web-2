@@ -199,9 +199,10 @@ label {
 
 /******** */
 .error {
+    font-weight: bolder;
     display: inline;
     color: rgb(255, 255, 255);
-    background-color: rgb(226, 19, 19);
+    background-color: rgb(189 10 10);
     padding: 1em;
 }
 
