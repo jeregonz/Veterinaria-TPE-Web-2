@@ -2,12 +2,14 @@
 {include file= "header.tpl"}
 
 <main>
-    <ul class="listamascotas">
+    <ul class="lista-mascotas">
         {foreach from=$mascotas item=$mascota}
             <li> 
-                <a class="mascota" href="mascota/{$mascota->id_mascota}">{$mascota->nombre|capitalize}</a>
-                <span>pertenece a: </span>
-                <a href="cliente/{$mascota->id_cliente}">{$mascota->nombre_cliente|capitalize}</a>
+                <a class="nombre-mascota" href="mascota/{$mascota->id_mascota}">{$mascota->nombre|capitalize}</a>
+                pertenece a:
+                <a class="nombre-cliente" href="cliente/{$mascota->id_cliente}">
+                    {$mascota->nombre_cliente|capitalize}
+                </a>
                 {if $is_logged}
                     <button class="modificar">
                     <a href="update/mascota/{$mascota->id_mascota}">Editar</a>

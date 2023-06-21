@@ -1,10 +1,10 @@
 {include file= "header.tpl"}
 
 <main>
-    <ul class="listamascotas">
+    <ul class="lista-clientes">
         {foreach from=$clientes item=$cliente}
             <li>
-                <a href="cliente/{$cliente->id_cliente}">{$cliente->nombre}</a>
+                <a class="nombre-cliente" href="cliente/{$cliente->id_cliente}">{$cliente->nombre}</a>
                 {if $is_logged}
                     <button class="modificar">
                     <a href="update/cliente/{$cliente->id_cliente}">Editar</a>

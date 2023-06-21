@@ -17,11 +17,14 @@
         <h1 class="titulo"> Veterinaria Las + Cotas</h1>
             
                 {if !$is_logged}
-                    <button class="boton_login" type="button"> <a href=login> Login </a></button>
+                    <a href="login">
+                        <button class="boton_login" type="button">Login</button>
+                    </a>
                 {else}
-                    <button class="boton_login" type="button"> <a href=logout> Logout </a></button>
+                    <a href="logout">
+                        <button class="boton_login" type="button">Logout</button>
+                    </a>
                 {/if}
-            
 
     </header>
     <nav>

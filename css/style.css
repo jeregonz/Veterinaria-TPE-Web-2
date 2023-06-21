@@ -60,7 +60,7 @@ main{
     margin-block: 3em;
 }
 
-.boton_base {
+.boton_volver {
     margin-top: 10px;
     border-radius: 5px;
     padding: 5px 10px;
@@ -71,15 +71,9 @@ main{
     align-items: end;
     margin: 5%;
 }
-.boton_volver {
-    margin-top: 10px;
-    border-radius: 5px;
-    padding: 5px 10px;
-    border: none;
-    background-color: #a25dec;
-    color: white;
-    cursor: pointer;
-    align-items: end;
+
+.boton_volver:hover{
+    background-color: #4d0569;
 }
 
 .boton_login {
@@ -87,17 +81,17 @@ main{
     width: 6em;
     border-radius: 15%;
     padding: 1px 1px;
-    background-color: #d1971b;
-    color: rgb(27, 27, 170);
+    background-color: #a25dec;
     cursor: pointer;
     font-style: normal;
-    font-family: Arial, Helvetica, sans-serif;    
-}
-
-.boton_login a{
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color: #fff;
     text-decoration: none;
+}
+
+.boton_login:hover{
+    background-color: #4d0569;
 }
 
 .form {
@@ -111,16 +105,10 @@ main{
 
 /*footer*/
 .footer {
-    height: 100px;
-    align-items: rigth;
     text-align: right;
- 
+    padding-right: 5%;
+    padding-top: 3.3%;
 }
-
-.espacio {
-    height: 50px;
-}
-
 
 form {
     display: flex;
@@ -185,7 +173,7 @@ label {
   }
 
   .form-group input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #4d0569;
   }
 
 
@@ -250,3 +238,24 @@ button.borrar a{
     border-radius: 5px;
     margin-top: 100px;
   }
+
+.lista-mascotas, .lista-clientes {
+    display: inline-block;
+    border: ridge;
+    border-color: #a25dec;
+    padding-block: 1em;
+    padding-inline: 5em;
+    border-radius: 1em;
+}
+
+.nombre-cliente, .nombre-mascota {
+    text-decoration: none;
+    font-weight: bolder;
+
+}
+
+span.nombre-cliente, span,.nombre-mascota, a.nombre-cliente, a.nombre-mascota{
+    color: #4d0f9e;
+    text-decoration: none;
+    font-weight: bolder;
+}
