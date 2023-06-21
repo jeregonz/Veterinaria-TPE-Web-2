@@ -1,6 +1,6 @@
 {include file="header.tpl"}
  
-    <form action="updating" method="post">
+    <form class="form-update" action="updating" method="post">
         <input type="hidden" name="id_mascota" value="{$mascota->id_mascota}">
 
         <label for="nombre">Nombre de la Mascota:</label>

@@ -6,7 +6,7 @@ class clientesView {
     private $smarty;
 
     public function __construct() {
-        $this->smarty = new Smarty(); // inicializo Smarty
+        $this->smarty = new Smarty();
     }
 
     function showInicio() {
@@ -15,7 +15,6 @@ class clientesView {
     }
     
     public function showClienteById($cliente, $tiene_mascotas, $is_logged) {
-        // mostrar el tpl
         $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('cliente', $cliente);
@@ -24,7 +23,6 @@ class clientesView {
     }
 
     public function showAllClientes($clientes, $is_logged) {
-        // mostrar el tpl
         $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('clientes', $clientes);
         $this->smarty->assign('BASE_URL', BASE_URL);

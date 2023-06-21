@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-
+<main>
     <p>nombre del cliente: {$cliente[0].nombre}</p>
     {if $tiene_mascotas}
         <p>{$cliente[0].nombre} tiene {$cliente|@count} mascotas</p>
@@ -11,6 +11,6 @@
     {else}
         <p>{$cliente[0].nombre} no tiene mascotas.</p>
     {/if}
-
+</main>
 
 {include file= "footer.tpl"}

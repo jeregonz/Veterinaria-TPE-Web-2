@@ -68,7 +68,6 @@ class clientesController {
         if (is_numeric($id)){
             if($this->getClienteAndMascota($id)){
                 $this->showError();
-                //$this->view->showMensaje("no se puede eliminar porque tiene al menos una mascota");
             }
             elseif ($this->getSoloCliente($id)){
                 $this->model->deleteClienteById($id);

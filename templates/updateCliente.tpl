@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 
-<form action="updating" method="post">
+<form class="form-update" action="updating" method="post">
     <input type="hidden" name="id_cliente" value="{$cliente[0]->id_cliente}">
 
     <label for="nombre">Nombre y Apellido:</label>
@@ -14,3 +14,5 @@
             
     <input class="modificar" type="submit" value="Modificar Cliente">
 </form>
+
+{include file="footer.tpl"}

@@ -1,5 +1,6 @@
 {include file= "header.tpl"}
 
+<main>
     <ul class="listamascotas">
         {foreach from=$clientes item=$cliente}
             <li>
@@ -17,7 +18,7 @@
     </ul>
 
     {if $is_logged}
-        <form class= "form" action="add_cliente" method="post">
+        <form class= "form-add" action="add_cliente" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -30,7 +31,7 @@
             <input class="agregar" type="submit" value="Agregar Cliente">
         </form>
     {/if}
-   
+</main>
    
  {include file= "footer.tpl"}
 

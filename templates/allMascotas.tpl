@@ -1,7 +1,7 @@
 
 {include file= "header.tpl"}
 
-
+<main>
     <ul class="listamascotas">
         {foreach from=$mascotas item=$mascota}
             <li> 
@@ -21,7 +21,7 @@
     </ul>
 
     {if $is_logged}
-        <form class= "form" action="add_mascota" method="post">
+        <form class= "form-add" action="add_mascota" method="post">
             <label for="nombre">Nombre de la Mascota:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -44,5 +44,5 @@
         </form>
     {/if}
     
-
-    {include file= "footer.tpl"}
+</main>
+{include file= "footer.tpl"}

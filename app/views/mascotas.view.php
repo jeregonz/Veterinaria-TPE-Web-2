@@ -6,10 +6,11 @@ class mascotasView {
     private $smarty;
 
     public function __construct() {
-        $this->smarty = new Smarty(); // inicializo Smarty
+        $this->smarty = new Smarty();
     }
 
     public function showMascotaById($mascota, $is_logged) {
+        $this->smarty->assign('title', $mascota->nombre);
         $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('mascota', $mascota);
@@ -17,7 +18,6 @@ class mascotasView {
     }
 
     public function showAllMascotas($mascotas, $clientes, $is_logged) {
-        // mostrar el tpl
         $this->smarty->assign('is_logged', $is_logged);
         $this->smarty->assign('title', 'Mascotas');
         $this->smarty->assign('clientes', $clientes);

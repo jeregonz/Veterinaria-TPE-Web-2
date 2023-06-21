@@ -84,11 +84,6 @@ switch ($params[0]) {
     case 'logout':
         $generalController->logout();
         break;
-    case 'usuario':
-        session_start();
-        var_dump($_SESSION['USER_NAME']);
-        var_dump($_SESSION['IS_LOGGED']);
-        break;
 
     default:
         echo "página '$params[0]' no encontrada";
