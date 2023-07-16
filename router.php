@@ -35,6 +35,9 @@ switch ($params[0]) {
         if (count($params) > 1)
             $clientesController->deleteCliente($params[1]);
         break;
+    case 'updating_cliente':
+        $clientesController->updateCliente();
+        break;
     case 'cliente':
         if (count($params) > 1) {
             $clientesController->showCliente($params[1], false);
@@ -53,6 +56,9 @@ switch ($params[0]) {
             $mascotasController->deleteMascota($params[1]);
         }
         break;
+    case 'updating_mascota':
+        $mascotasController->updateMascota();
+        break;
     case 'mascota':
         if (count($params) > 1) {
             $mascotasController->showMascota($params[1]);
@@ -63,14 +69,14 @@ switch ($params[0]) {
         if (count($params) > 2) {
             if ($params[1] == "mascota") {
                 $mascotasController->prepareUpdateMascota($params[2], $clientes);
-                if ($params[2] == "updating") {
-                    $mascotasController->updateMascota();
-                }
+                // if ($params[2] == "updating") {
+                //     $mascotasController->updateMascota();
+                // }
             } elseif ($params[1] == "cliente") {
                 $clientesController->prepareUpdateCliente($params[2]);
-                if ($params[2] == "updating") {
-                    $clientesController->updateCliente();
-                }
+                // if ($params[2] == "updating") {
+                //     $clientesController->updateCliente();
+                // }
             }
         }
         break;

@@ -1,6 +1,6 @@
 {include file="header.tpl"}
  
-    <form class="form-update" action="updating" method="post">
+    <form class="form-update" action="updating_mascota" method="post">
         <input type="hidden" name="id_mascota" value="{$mascota->id_mascota}">
 
         <label for="nombre">Nombre de la Mascota:</label>
@@ -14,7 +14,7 @@
 
         <label for="id_cliente">Nombre del dueño:</label>
         <select id="id_cliente" name="id_cliente" required>
-            <option></option>
+            <option value="{$mascota->id_cliente}">{$mascota->nombre_cliente}</option>
             {foreach from=$clientes item=$cliente}
                 <option value="{$cliente->id_cliente}">{$cliente->nombre}</option>
             {/foreach}
